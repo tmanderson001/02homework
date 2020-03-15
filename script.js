@@ -28,8 +28,9 @@ function getRandomNumber(){
 }
 
 function getRandomSymbmol() {
- var symbols = '!@#$%^&*()[],./{}|:<>?';
+ const symbols = '!@#$%^&*()[],./{}|:<>?';
  return symbols[Math.floor(Math.round() * symbols.length)];
 }
 
-console.log(getRandomSymbmol());
+console.log(getRandomLower());
+

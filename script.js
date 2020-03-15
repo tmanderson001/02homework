@@ -20,10 +20,7 @@ var randomFunc = {
 };
 
 
-
-generatePassword(getRandomNumber, getRandomSymbmol, getRandomUpper, getRandomLower);
-
-  // 
+  // function to generate password
 
   function generatePassword(lower, upper, number, symbol, length) {
     let generatedPassword = '';
@@ -48,13 +45,11 @@ generatePassword(getRandomNumber, getRandomSymbmol, getRandomUpper, getRandomLow
     return finalPassword;
   }
 
-console.log(lower, upper, number);
 
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-console.log(randomFunc());
 
 // Generator functions - http://www.net-comber.com/charset.html
 
@@ -75,4 +70,4 @@ function getRandomSymbmol() {
  return symbols[Math.floor(Math.round() * symbols.length)];
 }
 
-
+//user prompts for generator functions

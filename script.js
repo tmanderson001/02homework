@@ -1,18 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
-}
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
 // Generator functions - http://www.net-comber.com/charset.html
 
 function getRandomLower() {
@@ -28,9 +16,34 @@ function getRandomNumber(){
 }
 
 function getRandomSymbmol() {
- const symbols = '!@#$%^&*()[],./{}|:<>?';
+ var symbols = '!@#$%^&*()[],./{}|:<>?';
  return symbols[Math.floor(Math.round() * symbols.length)];
 }
 
-console.log(getRandomLower());
+var randomFunc = {
+  lower: getRandomLower,
+  upper: getRandomUpper,
+  number: getRandomNumber,
+  symbol: getRandomSymbmol,
+};
+
+
+// Write password to the #password input
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+
+  passwordText.value = password;
+
+}
+
+function generatePassword () {
+
+}
+
+
+
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
+
 

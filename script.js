@@ -64,10 +64,17 @@ function getRandomSymbmol() {
 }
 
 
-//user prompts for generator functions
-
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-randomFunc.lower(); 
+
+
+// Logic Prompt user for criteria and then generate password 
+var criteriaNumber = confirm()
+
+var criteriaUpper = confirm()
+
+var criteriaSymbmol = confirm()
+
+var criteriaLower = confirm() 

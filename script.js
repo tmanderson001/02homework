@@ -12,14 +12,6 @@ function writePassword() {
 
 }
 
-var randomFunc = {
-  lower: getRandomLower,
-  upper: getRandomUpper,
-  number: getRandomNumber,
-  symbol: getRandomSymbmol,
-};
-
-
   // function to generate password
 
   function generatePassword(lower, upper, number, symbol, length) {
@@ -45,11 +37,12 @@ var randomFunc = {
     return finalPassword;
   }
 
-
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
+  var randomFunc = {
+  lower: getRandomLower,
+  upper: getRandomUpper,
+  number: getRandomNumber,
+  symbol: getRandomSymbmol
+};
 
 // Generator functions - http://www.net-comber.com/charset.html
 
@@ -70,4 +63,11 @@ function getRandomSymbmol() {
  return symbols[Math.floor(Math.round() * symbols.length)];
 }
 
+
 //user prompts for generator functions
+
+
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
+
+randomFunc.lower(); 

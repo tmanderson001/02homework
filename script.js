@@ -12,6 +12,9 @@ function writePassword() {
 
 }
 
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
+
   // function to generate password
 
   function generatePassword(lower, upper, number, symbol, length) {
@@ -47,14 +50,14 @@ function writePassword() {
 // Generator functions - http://www.net-comber.com/charset.html
 
 function getRandomLower() {
-  return String.fromCharCode(Math.floor(Math.random() * 26) +97);
+  return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
 }
 
 function getRandomUpper() {
-  return String.fromCharCode(Math.floor(Math.round() * 26) + 65);
+  return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
 }
 
-function getRandomNumber(){
+function getRandomNumber() {
   return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
 }
 
@@ -65,16 +68,4 @@ function getRandomSymbmol() {
 
 
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
 
-
-
-// Logic Prompt user for criteria and then generate password 
-var criteriaNumber = confirm()
-
-var criteriaUpper = confirm()
-
-var criteriaSymbmol = confirm()
-
-var criteriaLower = confirm() 

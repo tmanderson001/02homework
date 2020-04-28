@@ -1,71 +1,67 @@
-// Assignment Code
-var generateBtn = document.querySelector("#generate");
+let randomCharString = "";
+let charSet = [
+  {
+    char: "!#$%&'()*+,-./:;<=>?@[]^_`{|}~",
+    name: "Special Characters",
+    use: false
+  },
+  {
+    char: "0123456789",
+    name: "Number Characters",
+    use: false
+  },
+  {
+    char: "abcdefghijklmnopqrstuvwxyz",
+    name: "Lowercase Letters",
+    use: false
+  },
+  {
+    char: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    name: "Uppercase Letters",
+    use: false
+  }
+]
 
+//prompt user for password length 
 
+const generate = () => {
+  let passwordLength = parseInt(prompt("Please select a password length between 8 and 128 characters."));
+  let passwordString = "";
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
-}
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
-  // function to generate password
-
-  function generatePassword(lower, upper, number, symbol, length) {
-    let generatedPassword = '';
-    const typesCount = lower + upper + number + symbol;
-    const typesArr = [{lower}, {upper}, {number}, {symbol}].filter(item => Object.values(item)[0]);
-    
-    // Doesn't have a selected type
-    if(typesCount === 0) {
-      return '';
-    }
-    
-    // create a loop
-    for(let i=0; i<length; i+=typesCount) {
-      typesArr.forEach(type => {
-        const funcName = Object.keys(type)[0];
-        generatedPassword += randomFunc[funcName]();
-      });
-    }
-    
-    const finalPassword = generatedPassword.slice(0, length);
-    
-    return finalPassword;
+  //check password length
+  if (passwordLength > 8 && passwordLength < 128) {
+    charSet.forEach(set => {
+      const useChar = (prompt(`Do you want to use ${set.name}?`)).toLowerCase();
+      if (useChar === "yes" || useChar === "y") {
+        set.use = true;
+      }
+      if (set.use) {
+        randomCharString = randomCharString + set.char;
+      }
+    });
+    console.log(JSON.stringify(charSet))
+  }
+  else {
+    alert("Your password does not meet the requirements. Please refresh and try again.");
   }
 
-  var randomFunc = {
-  lower: getRandomLower,
-  upper: getRandomUpper,
-  number: getRandomNumber,
-  symbol: getRandomSymbmol
-};
+  //generate random password 
+  if (randomCharString !== "") {
+    for (i = 1; i <= passwordLength; i++) {
+      passwordString = passwordString + randomCharString.charAt(Math.floor(Math.random() * Math.floor((randomCharString.length) - 1)));
+    }
 
-// Generator functions - http://www.net-comber.com/charset.html
-
-function getRandomLower() {
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+    document.getElementById("password").value = passwordString;
+  }
+  else {
+    alert("You must use at least one kind of character. Please refresh and try again.");
+  }
 }
 
-function getRandomUpper() {
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+const copy = () => {
+  const copyText = document.querySelector("#password");
+  copyText.select();
+  document.execCommand("copy");
+  alert("Your password has been copied to the clipboard.");
 }
-
-function getRandomNumber() {
-  return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
-}
-
-function getRandomSymbmol() {
- var symbols = '!@#$%^&*()[],./{}|:<>?';
- return symbols[Math.floor(Math.round() * symbols.length)];
-}
-
-
-
 
